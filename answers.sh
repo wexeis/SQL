@@ -20,7 +20,7 @@ WHERE name = "Alex"
 
 
 5. Add yourself as a new student (your name, your age...)
-INSERT INTO students (name, Age) VALUES("samer", 24)
+INSERT INTO students (name, Age) VALUES("Samer", 24)
 
 6. Increase the points of **Basma** because she solved a new exercise
 
@@ -36,4 +36,39 @@ SET Points = 150
 WHERE name = "Alex"
 
 
+Create a graduates table
 
+CREATE TABLE "graduates" (
+	"ID"	INTEGER NOT NULL,
+	"Name"	TEXT NOT NULL UNIQUE,
+	"Age"	INTEGER,
+	"Gender"	TEXT,
+	"Points"	INTEGER,
+	"Graduation"	TEXT,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
+
+10. Copy Layals data from students to graduates
+
+INSERT INTO graduates(name, Age, Gender, points)
+SELECT 
+   name,Age,Gender,Points
+FROM 
+   students
+WHERE
+   name = 'Layal';
+
+
+11. Add the graduation date previously mentioned to Layals record in graduates
+
+UPDATE graduates
+SET Graduation = '08/09/2018'
+WHERE name = 'Layal'
+
+
+12. Remove Layals record from students
+
+DELETE FROM students
+WHERE name = 'Layal'
+
+13.
