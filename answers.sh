@@ -75,22 +75,25 @@ WHERE name = 'Layal'
 
 14. Produce a table that contains, for each employee, his/her name, company name, and company date.
 
-SELECT employees.name, employees.Company, companies.date
-FROM employees, companies
-WHERE employees.Company = companies.name ;	
+SELECT e.ID, e.Name, e.Company,c.Date
+FROM employees e
+INNER JOIN companies c ON e.Company=c.Name
 
 
 15.Find the name of **employees** that work in companies made before 2000.
-SELECT employees.name, employees.Company, companies.date > 2000
-FROM employees, companies
-WHERE employees.Company = companies.name ;	
+
+SELECT e.Name
+FROM employees e
+INNER JOIN companies c ON e.Company=c.Name
+WHERE Date<2000	
 
 
 16. Find the name of company that has a graphic designer.
 
-SELECT * 
-FROM employees
-WHERE Role = "Graphic Designer";
+SELECT e.Company
+FROM employees e
+INNER JOIN companies c ON e.Company=c.Name
+WHERE Role='Graphic Designer';
 
 17. Commit ("Joins")
 
